@@ -11,10 +11,12 @@
 </head>
 <body>
 <div class="max-w-5xl mx-auto mt-6 mb-6 flex justify-between items-center">
-    <h1 class="text-2xl font-semibold leading-none">Categorias</h1>
-    <a href="{{ route('categorias.create') }}" class="focus:outline-none text-white bg-purple-900 hover:bg-fuchsia-950 focus:ring-4 focus:ring-fuchsia-950 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-fuchsia-900 dark:hover:bg-fuchsia-900 dark:focus:ring-fuchsia-900 flex items-center">
-        Adicionar
-    </a>
+    <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Categorias</h1>
+    <div class="mt-2">
+        <a href="{{ route('categorias.create') }}" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+            Adicionar
+        </a>
+    </div>
 </div>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-5xl mx-auto mt-6 border border-fuchsia-900">
