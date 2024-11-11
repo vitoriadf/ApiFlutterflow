@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Cor;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class CorController extends Controller
 
     public function create()
     {
-        return view('cor_create');
+        return redirect()->route('cores.index')->with('showModal', true);
     }
 
     public function store(Request $request)
@@ -31,8 +32,9 @@ class CorController extends Controller
         ]);
 
         if ($create) {
-            return redirect()->back()->with('message', 'Cor adicionada com sucesso');
+            return redirect()->back()->with('message', 'Cor adicionada com sucesso')->with('showModal', false);
         }
+
         return redirect()->back()->with('message', 'Erro ao adicionar nova cor');
     }
 
@@ -49,6 +51,7 @@ class CorController extends Controller
     public function update(Request $request, string $id)
     {
         $update = $this->cor->where('id', $id)->update($request->except(['_token', '_method']));
+
         if ($update) {
             return redirect()->back()->with('message', 'Cor editada com sucesso');
         }
@@ -59,5 +62,10 @@ class CorController extends Controller
     {
         $this->cor->where('id', $id)->delete();
         return redirect()->route('cores.index');
+    }
+
+    public function closeModal()
+    {
+        return redirect()->route('cores.index')->with('showModal', false);
     }
 }

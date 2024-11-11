@@ -31,6 +31,7 @@ Route::get('/cores/{cor}', [CorController::class, 'show'])->name('cores.show');
 Route::get('/cores/{cor}/edit', [CorController::class, 'edit'])->name('cores.edit');
 Route::put('/cores/{cor}', [CorController::class, 'update'])->name('cores.update');
 Route::delete('/cores/{cor}', [CorController::class, 'destroy'])->name('cores.destroy');
+Route::post('/cores/close-modal', [CorController::class, 'closeModal'])->name('cores.closeModal');
 
 Route::get('/tamanhos', [TamanhoController::class, 'index'])->name('tamanhos.index');
 Route::get('/tamanhos/create', [TamanhoController::class, 'create'])->name('tamanhos.create');
