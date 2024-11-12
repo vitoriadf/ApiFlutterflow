@@ -5,7 +5,7 @@
 
 
     <form method="POST" action="{{ route('login') }}">
-    
+        <h3 class="text-5xl text-fuchsia-900 font-semibold mb-10">Login</h3>
         @csrf
      
         <!-- Email Address -->
@@ -38,7 +38,7 @@
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-fuchsia-900 hover:text-fuchsia-950 dark:hover:fuchsia-gray-950 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('Esqueceu sua senha') }}
                 </a>
             @endif
 
