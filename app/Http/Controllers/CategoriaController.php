@@ -68,9 +68,8 @@ class CategoriaController extends Controller
        return redirect()->back()->with('message','erro ao editar');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+  
+ 
     public function destroy(string $id)
     {
         $this->categoria->where('id',$id)->delete();

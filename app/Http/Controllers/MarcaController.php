@@ -21,12 +21,11 @@ class MarcaController extends Controller
 
     public function create()
     {
-        return view('marca_create');
+        return redirect()->route('marcas.index')->with('showModal', true);
     }
+    
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $create = $this->marca->create([
@@ -34,7 +33,9 @@ class MarcaController extends Controller
         ]);
 
         if ($create) {
-            return redirect()->back()->with('message', 'Marca adicionada com sucesso');
+
+            return redirect()->back()->with('message', 'Marca adicionada com sucesso')->with('showModal', false);
+           
         }
         return redirect()->back()->with('message', 'Erro ao adicionar nova marca');
     }
@@ -74,5 +75,10 @@ class MarcaController extends Controller
     {
         $this->marca->where('id', $id)->delete();
         return redirect()->route('marcas.index');
+    }
+
+    public function closeModal()
+    {
+        return redirect()->route('marcas.index')->with('showModal', false);
     }
 }
