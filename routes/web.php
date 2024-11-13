@@ -7,7 +7,25 @@ use App\Http\Controllers\CorController;
 use App\Http\Controllers\TamanhoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class,'index'])->name('home');
+
+
+
+
+
+
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/categorias',[CategoriaController::class,'index'])->name('categorias.index');
 Route::get('/categorias/create',[CategoriaController::class,'create'])->name('categorias.create');
 Route::post('/categorias',[CategoriaController::class,'store'])->name('categorias.store');
@@ -41,22 +59,6 @@ Route::get('/tamanhos/{tamanho}', [TamanhoController::class, 'show'])->name('tam
 Route::get('/tamanhos/{tamanho}/edit', [TamanhoController::class, 'edit'])->name('tamanhos.edit');
 Route::put('/tamanhos/{tamanho}', [TamanhoController::class, 'update'])->name('tamanhos.update');
 Route::delete('/tamanhos/{tamanho}', [TamanhoController::class, 'destroy'])->name('tamanhos.destroy');
-
-
-
-
-
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
