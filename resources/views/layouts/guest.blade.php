@@ -13,8 +13,7 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-fuchsia-300">
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-fuchsia-200 shadow-md shadow-fuchsia-400 opacity-85 overflow-hidden sm:rounded-lg">
-               
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-fuchsia-200 shadow-2xl rounded-3xl  overflow-hidden sm:rounded-lg">
                 <div class="mt-4">
                     <a href="/">
                         <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -27,4 +26,5 @@
         </div>
     </body>
 </html>
+
 

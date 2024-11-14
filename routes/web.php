@@ -59,6 +59,8 @@ Route::get('/tamanhos/{tamanho}', [TamanhoController::class, 'show'])->name('tam
 Route::get('/tamanhos/{tamanho}/edit', [TamanhoController::class, 'edit'])->name('tamanhos.edit');
 Route::put('/tamanhos/{tamanho}', [TamanhoController::class, 'update'])->name('tamanhos.update');
 Route::delete('/tamanhos/{tamanho}', [TamanhoController::class, 'destroy'])->name('tamanhos.destroy');
+
+
 });
 
 require __DIR__.'/auth.php';
