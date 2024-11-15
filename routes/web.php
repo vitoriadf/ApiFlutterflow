@@ -41,7 +41,8 @@ Route::get('/marcas/{marca}', [MarcaController::class, 'show'])->name('marcas.sh
 Route::get('/marcas/{marca}/edit', [MarcaController::class, 'edit'])->name('marcas.edit');
 Route::put('/marcas/{marca}', [MarcaController::class, 'update'])->name('marcas.update');
 Route::delete('/marcas/{marca}', [MarcaController::class, 'destroy'])->name('marcas.destroy');
-Route::post('/marcas/close-modal', [CorController::class, 'closeModal'])->name('marcas.closeModal');
+Route::post('marcas/closeModal', [MarcaController::class, 'closeModal'])->name('marcas.closeModal');
+
 
 Route::get('/cores', [CorController::class, 'index'])->name('cores.index');
 Route::get('/cores/create', [CorController::class, 'create'])->name('cores.create');

@@ -21,7 +21,7 @@ class MarcaController extends Controller
 
     public function create()
     {
-        return redirect()->route('marcas.index')->with('showModal', true);
+        return redirect()->route('marcas.index')->with('showMarcaModal', true);
     }
     
 
@@ -34,10 +34,11 @@ class MarcaController extends Controller
 
         if ($create) {
 
-            return redirect()->back()->with('message', 'Marca adicionada com sucesso')->with('showModal', false);
+            return redirect()->route('marcas.index')->with('message', 'Marca adicionada com sucesso')->with('showMarcaModal', false);
            
         }
         return redirect()->back()->with('message', 'Erro ao adicionar nova marca');
+       
     }
 
     /**
@@ -79,6 +80,9 @@ class MarcaController extends Controller
 
     public function closeModal()
     {
-        return redirect()->route('marcas.index')->with('showModal', false);
+        return redirect()->route('marcas.index')->with('showMarcaModal', false);
     }
+
+    
+   
 }
