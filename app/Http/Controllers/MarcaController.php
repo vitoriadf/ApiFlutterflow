@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Marca;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class MarcaController extends Controller
 
     public function index()
     {
-        $marcas = $this->marca->all(); 
+        $marcas = $this->marca->all();
         return view('marcas', ['marcas' => $marcas]);
     }
 
@@ -23,7 +24,7 @@ class MarcaController extends Controller
     {
         return redirect()->route('marcas.index')->with('showMarcaModal', true);
     }
-    
+
 
 
     public function store(Request $request)
@@ -35,10 +36,8 @@ class MarcaController extends Controller
         if ($create) {
 
             return redirect()->route('marcas.index')->with('message', 'Marca adicionada com sucesso')->with('showMarcaModal', false);
-           
         }
         return redirect()->back()->with('message', 'Erro ao adicionar nova marca');
-       
     }
 
     /**
@@ -54,7 +53,7 @@ class MarcaController extends Controller
      */
     public function edit(Marca $marca)
     {
-        return view('marca_edit', ['marca' => $marca]);
+        return redirect()->route('marcas.index')->with(['showMarcaEditModal' => true, 'marca' => $marca]);
     }
 
     /**
@@ -64,9 +63,9 @@ class MarcaController extends Controller
     {
         $update = $this->marca->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {
-            return redirect()->back()->with('message', 'Editado com sucesso');
+            return redirect()->route('marcas.index')->with('message', 'Editado com sucesso')->with('showMarcaEditModal', false);
         }
-        return redirect()->back()->with('message', 'Erro ao editar');
+        return redirect()->route('marcas.index')->with('message', 'Erro ao editar')->with('showMarcaEditModal', false);
     }
 
     /**
@@ -83,6 +82,8 @@ class MarcaController extends Controller
         return redirect()->route('marcas.index')->with('showMarcaModal', false);
     }
 
-    
-   
+    public function closeModalEdit()
+    {
+        return redirect()->route('marcas.index')->with('showMarcaEditModal', false);
+    }
 }
