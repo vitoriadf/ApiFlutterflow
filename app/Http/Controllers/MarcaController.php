@@ -48,6 +48,7 @@ class MarcaController extends Controller
         return view('marca_show', ['marca' => $marca]);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -73,9 +74,28 @@ class MarcaController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->marca->where('id', $id)->delete();
-        return redirect()->route('marcas.index');
+        return redirect()->route('marcas.index')
+            ->with('showMarcaDeleteModal', true)
+            ->with('marcaDeleteId', $id);
     }
+
+
+    public function confirmDelete(string $id)
+    {
+        $marca = $this->marca->find($id);
+
+        if ($marca) {
+            $marca->delete();
+            return redirect()->route('marcas.index')
+                ->with('message', 'Marca excluída com sucesso')
+                ->with('showMarcaDeleteModal', false);
+        }
+
+        return redirect()->route('marcas.index')
+            ->with('message', 'Erro ao excluir marca')
+            ->with('showMarcaDeleteModal', false);
+    }
+
 
     public function closeModal()
     {
@@ -85,5 +105,10 @@ class MarcaController extends Controller
     public function closeModalEdit()
     {
         return redirect()->route('marcas.index')->with('showMarcaEditModal', false);
+    }
+
+    public function closeModalDelete()
+    {
+        return redirect()->route('marcas.index')->with('showMarcaDeleteModal', false);
     }
 }

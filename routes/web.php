@@ -44,6 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/marcas/{marca}', [MarcaController::class, 'destroy'])->name('marcas.destroy');
     Route::post('marcas/closeModal', [MarcaController::class, 'closeModal'])->name('marcas.closeModal');
     Route::post('/marcas/close-modal-edit', [MarcaController::class, 'closeModalEdit'])->name('marcas.closeModalEdit');
+    Route::get('/marcas/{marca}/delete', [MarcaController::class, 'destroy'])->name('marcas.destroy');
+    Route::post('/marcas/{id}/confirm-delete', [MarcaController::class, 'confirmDelete'])->name('marcas.confirmDelete');
+    Route::post('/marcas/close-modal-delete', [MarcaController::class, 'closeModalDelete'])->name('marcas.closeModalDelete');
+
 
 
 
