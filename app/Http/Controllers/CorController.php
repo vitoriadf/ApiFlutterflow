@@ -16,13 +16,13 @@ class CorController extends Controller
 
     public function index()
     {
-        $cores = $this->cor->all(); 
+        $cores = $this->cor->all();
         return view('cores', ['cores' => $cores]);
     }
 
     public function create()
     {
-        return redirect()->route('cores.index')->with('showModal', true);
+        return redirect()->route('cores.index')->with('showCorModal', true);
     }
 
     public function store(Request $request)
@@ -32,7 +32,7 @@ class CorController extends Controller
         ]);
 
         if ($create) {
-            return redirect()->back()->with('message', 'Cor adicionada com sucesso')->with('showModal', false);
+            return redirect()->route('cores.index')->with('message', 'Cor adicionada com sucesso')->with('showCorModal', false);
         }
 
         return redirect()->back()->with('message', 'Erro ao adicionar nova cor');
@@ -45,27 +45,54 @@ class CorController extends Controller
 
     public function edit(Cor $cor)
     {
-        return view('cor_edit', ['cor' => $cor]);
+        return redirect()->route('cores.index')->with(['showCorEditModal' => true, 'cor' => $cor]);
     }
 
     public function update(Request $request, string $id)
     {
         $update = $this->cor->where('id', $id)->update($request->except(['_token', '_method']));
-
         if ($update) {
-            return redirect()->back()->with('message', 'Cor editada com sucesso');
+            return redirect()->route('cores.index')->with('message', 'Cor editada com sucesso')->with('showCorEditModal', false);
         }
-        return redirect()->back()->with('message', 'Erro ao editar cor');
+
+        return redirect()->route('cores.index')->with('message', 'Erro ao editar cor')->with('showCorEditModal', false);
     }
 
     public function destroy(string $id)
     {
-        $this->cor->where('id', $id)->delete();
-        return redirect()->route('cores.index');
+        return redirect()->route('cores.index')
+            ->with('showCorDeleteModal', true)
+            ->with('corDeleteId', $id);
+    }
+
+    public function confirmDelete(string $id)
+    {
+        $cor = $this->cor->find($id);
+
+        if ($cor) {
+            $cor->delete();
+            return redirect()->route('cores.index')
+                ->with('message', 'Cor excluída com sucesso')
+                ->with('showCorDeleteModal', false);
+        }
+
+        return redirect()->route('cores.index')
+            ->with('message', 'Erro ao excluir cor')
+            ->with('showCorDeleteModal', false);
     }
 
     public function closeModal()
     {
-        return redirect()->route('cores.index')->with('showModal', false);
+        return redirect()->route('cores.index')->with('showCorModal', false);
+    }
+
+    public function closeModalEdit()
+    {
+        return redirect()->route('cores.index')->with('showCorEditModal', false);
+    }
+
+    public function closeModalDelete()
+    {
+        return redirect()->route('cores.index')->with('showCorDeleteModal', false);
     }
 }

@@ -5,16 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\CorController;
-use App\Http\Controllers\TamanhoController;
 use Illuminate\Support\Facades\Route;
-
-
-
-
-
-
-
-
 
 
 Route::get('/dashboard', function () {
@@ -34,6 +25,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
     Route::put('/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
     Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+    Route::post('categorias/closeModal', [CategoriaController::class, 'closeModal'])->name('categorias.closeModal');
+    Route::post('/categorias/close-modal-edit', [CategoriaController::class, 'closeModalEdit'])->name('categorias.closeModalEdit');
+    Route::get('/categorias/{categoria}/delete', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+    Route::post('/categorias/{id}/confirm-delete', [CategoriaController::class, 'confirmDelete'])->name('categorias.confirmDelete');
+    Route::post('/categorias/close-modal-delete', [CategoriaController::class, 'closeModalDelete'])->name('categorias.closeModalDelete');
+
 
     Route::get('/marcas', [MarcaController::class, 'index'])->name('marcas.index');
     Route::get('/marcas/create', [MarcaController::class, 'create'])->name('marcas.create');
@@ -58,15 +55,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/cores/{cor}/edit', [CorController::class, 'edit'])->name('cores.edit');
     Route::put('/cores/{cor}', [CorController::class, 'update'])->name('cores.update');
     Route::delete('/cores/{cor}', [CorController::class, 'destroy'])->name('cores.destroy');
-    Route::post('/cores/close-modal', [CorController::class, 'closeModal'])->name('cores.closeModal');
-
-    Route::get('/tamanhos', [TamanhoController::class, 'index'])->name('tamanhos.index');
-    Route::get('/tamanhos/create', [TamanhoController::class, 'create'])->name('tamanhos.create');
-    Route::post('/tamanhos', [TamanhoController::class, 'store'])->name('tamanhos.store');
-    Route::get('/tamanhos/{tamanho}', [TamanhoController::class, 'show'])->name('tamanhos.show');
-    Route::get('/tamanhos/{tamanho}/edit', [TamanhoController::class, 'edit'])->name('tamanhos.edit');
-    Route::put('/tamanhos/{tamanho}', [TamanhoController::class, 'update'])->name('tamanhos.update');
-    Route::delete('/tamanhos/{tamanho}', [TamanhoController::class, 'destroy'])->name('tamanhos.destroy');
+    Route::post('cores/closeModal', [CorController::class, 'closeModal'])->name('cores.closeModal');
+    Route::post('/cores/close-modal-edit', [CorController::class, 'closeModalEdit'])->name('cores.closeModalEdit');
+    Route::get('/cores/{cor}/delete', [CorController::class, 'destroy'])->name('cores.destroy');
+    Route::post('/cores/{id}/confirm-delete', [CorController::class, 'confirmDelete'])->name('cores.confirmDelete');
+    Route::post('/cores/close-modal-delete', [CorController::class, 'closeModalDelete'])->name('cores.closeModalDelete');
 });
 
 require __DIR__ . '/auth.php';

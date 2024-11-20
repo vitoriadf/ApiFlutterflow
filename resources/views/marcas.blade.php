@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-5xl mx-auto mt-12 border border-fuchsia-900">
+<div class="relative overflow-x-auto shadow-lg sm:rounded-lg max-w-5xl mx-auto mt-12 border border-fuchsia-900">
     <table class="w-full text-sm text-left rtl:text-right text-fuchsia-900 dark:text-fuchsia-50 rounded-lg dark:bg-fuchsia-900 ">
         <thead class="text-xs text-fuchsia-700 uppercase bg-fuchsia-200 dark:bg-fuchsia-900 dark:text-fuchsia-50">
             <tr>
@@ -29,9 +29,9 @@
                 </th>
             </tr>
         </thead>
-        <tbody class="bg-fuchsia-50 border-t dark:bg-fuchsia-50 dark:border-fuchsia-900">
+        <tbody class="bg-fuchsia-50 border-t dark:bg-fuchsia-100 dark:border-fuchsia-900">
             @foreach($marcas as $marca)
-            <tr class="hover:bg-fuchsia-50 dark:hover:bg-fuchsia-50 border-t border-fuchsia-900">
+            <tr class="hover:bg-fuchsia-100 dark:hover:bg-fuchsia-200 border-t border-fuchsia-900">
                 <td class="px-6 py-4 text-fuchsia-900 text-center border-fuchsia-900">
                     {{$marca->id}}
                 </td>
@@ -42,7 +42,7 @@
                     <div class="inline-flex space-x-4">
                         <a href="{{ route('marcas.edit', ['marca' => $marca->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
                         <a href="{{ route('marcas.destroy', $marca->id) }}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Deletar</a>
-                        <a href="{{ route('marcas.show', ['marca' => $marca->id]) }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">Detalhes</a>
+
                     </div>
                 </td>
             </tr>
@@ -51,9 +51,9 @@
     </table>
 </div>
 @if(session('showMarcaModal'))
-<div class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
+<div class="fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
     <div class="relative p-4 w-full max-w-xl min-h-[400px]">
-        <div class="relative bg-fuchsia-50 text-fuchsia-900 rounded-lg shadow">
+        <div class="relative bg-fuchsia-200 text-fuchsia-900 rounded-lg shadow-2xl">
             <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-fuchsia-950">
                 <h3 class="text-lg font-semibold">Adicionar Nova Marca</h3>
                 <form action="{{ route('marcas.closeModal') }}" method="POST" class="inline">
@@ -71,15 +71,15 @@
                 <div class="grid gap-4 mb-4">
                     <div class="col-span-2">
                         <label for="nome" class="block mb-2 text-sm font-medium">Nome da Marca</label>
-                        <input type="text" name="nome" id="nome" class="bg-fuchsia-50 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-50 dark:border-gray-400 dark:placeholder-gray-400 dark:text-fuchsia-900 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Digite o nome da marca" required>
+                        <input type="text" name="nome" id="nome" class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900" placeholder="Digite o nome da marca" required>
                     </div>
                 </div>
 
                 <div class="flex justify-center space-x-4 mt-6">
 
-                    <button type="submit" class="text-fuchsia-50 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        Fechar
-                    </button>
+                    <a href="{{ route('marcas.index') }}" class="py-2.5 px-5 ms-3 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:outline-none">
+                        fechar
+                    </a>
                     <button type="submit" class="text-white items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Adicionar
                     </button>
@@ -90,9 +90,9 @@
 </div>
 @endif
 @if(session('showMarcaEditModal'))
-<div class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
+<div class="fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
     <div class="relative p-4 w-full max-w-xl min-h-[400px]">
-        <div class="relative bg-fuchsia-50 text-fuchsia-900 rounded-lg shadow">
+        <div class="relative bg-fuchsia-200 text-fuchsia-900 rounded-lg shadow">
             <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-fuchsia-950">
                 <h3 class="text-lg font-semibold">Editar Marca</h3>
                 <form action="{{ route('marcas.closeModalEdit') }}" method="POST" class="inline">
@@ -104,24 +104,25 @@
                     </button>
                 </form>
             </div>
-            <form action="{{ route('marcas.update', $marca->id) }}" method="POST" class="p-4 md:p-5">
+            <form action="{{ route('marcas.update', session('marca')->id) }}" method="POST" class="p-4 md:p-5">
                 @csrf
                 @method('PUT')
                 <div class="grid gap-4 mb-4">
                     <div class="col-span-2">
                         <label for="nome" class="block mb-2 text-sm font-medium">Nome da Marca</label>
-                        <input type="text" name="nome" id="nome" value="{{ old('nome', $marca->nome) }}" class="bg-fuchsia-50 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-50 dark:border-gray-400 dark:placeholder-gray-400 dark:text-fuchsia-900 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Digite o nome da marca" required>
+                        <input type="text" name="nome" id="nome" value="{{ old('nome', session('marca')->nome) }}" class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900" placeholder="Digite o nome da marca" required>
                     </div>
                 </div>
                 <div class="flex justify-center space-x-4 mt-6">
-                    <button type="submit" class="text-fuchsia-50 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        Fechar
-                    </button>
                     <button type="submit" class="text-white items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Atualizar
                     </button>
+                    <a href="{{ route('marcas.index') }}" class="py-2.5 px-5 ms-3 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:outline-none">
+                        Fechar
+                    </a>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
