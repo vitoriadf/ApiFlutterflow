@@ -76,7 +76,7 @@
                     <div class="inline-flex space-x-4">
                         <a href="{{ route('produtos.edit', ['produto' => $produto->id]) }}"
                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
-                        <a href="{{ route('produtos.destroy', $produto->id) }}"
+                        <a href="{{ route('produtos.destroy', $produto->id) }} "
                             class="font-medium text-red-600 dark:text-red-500 hover:underline">Deletar</a>
                     </div>
                 </td>
@@ -85,4 +85,43 @@
         </tbody>
     </table>
 </div>
+@if (session('showProdutoDeleteModal'))
+<div id="popup-modal" tabindex="-1"
+    class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <div class="bg-fuchsia-200 rounded-lg shadow-2xl">
+            <form action="{{ route('produtos.closeModalDelete') }}" method="POST" class="inline">
+                @csrf
+                <button type="submit"
+                    class="text-fuchsia-400 hover:bg-fuchsia-300 hover:text-white rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-fuchsia-800 dark:hover:text-white">
+                    <svg class="w-3 h-3 text-fuchsia-950 hover:text-fuchsia-200" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                </button>
+            </form>
+
+            <div class="p-4 text-center">
+                <svg class="mx-auto mb-4 text-fuchsia-900 w-12 h-12" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-fuchsia-900">Você tem certeza que deseja excluir este produto?</h3>
+                <form action="{{ route('produtos.confirmDelete', session('produtoDeleteId')) }}" method="POST"
+                    class="inline">
+                    @csrf
+                    <button type="submit"
+                        class="text-white bg-red-600 hover:bg-red-800 px-5 py-2.5 rounded-lg text-sm">Confirmar</button>
+                </form>
+                <a href="{{ route('produtos.index') }}"
+                    class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:outline-none">
+                    Cancelar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endsection

@@ -46,7 +46,7 @@ class ProdutoController extends Controller
             'marca_id' => $request->input('marca_id'),
             'cor_id' => $request->input('cor_id'),
             'categoria_id' => $request->input('categoria_id'),
-            'quantidade' => $request->input('quantidade'),
+            'quantidade' => $request->input('quatidade'),
         ]);
 
         if ($create) {
@@ -67,7 +67,7 @@ class ProdutoController extends Controller
         $cores = $this->cor->all();
         $categorias = $this->categoria->all();
 
-        return view('produtos.edit', compact('produto', 'marcas', 'cores', 'categorias'));
+        return view('produto_edit', compact('produto', 'marcas', 'cores', 'categorias'));
     }
 
     public function update(Request $request, string $id)
@@ -80,6 +80,7 @@ class ProdutoController extends Controller
             'marca_id' => $request->input('marca_id'),
             'cor_id' => $request->input('cor_id'),
             'categoria_id' => $request->input('categoria_id'),
+            'quantidade' => $request->input('quantidade'),
         ]);
 
         return redirect()->route('produtos.index')->with('message', 'Produto atualizado com sucesso');
@@ -108,15 +109,7 @@ class ProdutoController extends Controller
             ->with('showProdutoDeleteModal', false);
     }
 
-    public function closeModal()
-    {
-        return redirect()->route('produtos.index')->with('showProdutoModal', false);
-    }
-
-    public function closeModalEdit()
-    {
-        return redirect()->route('produtos.index')->with('showProdutoEditModal', false);
-    }
+   
 
     public function closeModalDelete()
     {
