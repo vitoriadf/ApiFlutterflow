@@ -128,7 +128,7 @@
 </div>
 @endif
 @if (session('showMarcaDeleteModal'))
-<div id="popup-modal" tabindex="-1" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+<div id="popup-modal" tabindex="-1" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50 ">
     <div class="relative p-4 w-full max-w-md max-h-full">
 
         <div class="bg-fuchsia-200 rounded-lg shadow-2xl">

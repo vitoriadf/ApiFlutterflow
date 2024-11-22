@@ -2,6 +2,7 @@
 
 @section('header')
 <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Categorias</h1>
+
 @endsection
 
 @section('content')
