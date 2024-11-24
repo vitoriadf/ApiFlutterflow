@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('header')
-<h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Cores</h1>
-@endsection
-
 @section('content')
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
     <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Cores</h1>
