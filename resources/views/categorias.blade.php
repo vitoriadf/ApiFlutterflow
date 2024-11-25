@@ -1,11 +1,33 @@
 @extends('layouts.app')
 
-@section('header')
-<h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Categorias</h1>
-
-@endsection
-
 @section('content')
+
+
+@if(session()->has('message')){
+
+
+<div id="alert-2" class="flex items-center p-4 mt-4 mb-1 text-green-800 rounded-md bg-green-50 dark:bg-green-400 dark:text-green-900 w-1/2 mx-auto" role="alert">
+    <svg class="flex-shrink-0 w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+    </svg>
+    <span class="sr-only">Erro</span>
+    <div class="ms-2 text-sm font-medium">
+        <p>{{ session()->get('message') }}</p>
+    </div>
+    <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1 hover:bg-red-200 inline-flex items-center justify-center h-6 w-6 dark:bg-green-800 dark:text-green-400 dark:hover:bg-green-900" data-dismiss-target="#alert-2" aria-label="Fechar" onclick="document.getElementById('alert-2').style.display='none'">
+        <span class="sr-only">Fechar</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+    </button>
+</div>
+
+}
+@endif
+
+
+
+
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
     <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Categorias</h1>
     <div class="mt-2">
@@ -81,7 +103,7 @@
                         <label for="nome" class="block mb-2 text-sm font-medium">Nome da Categoria</label>
                         <input type="text" name="nome" id="nome"
                             class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900"
-                            placeholder="Digite o nome da categoria" required>
+                            placeholder="Digite o nome da categoria">
                     </div>
                 </div>
 
@@ -126,8 +148,7 @@
                     <div class="col-span-2">
                         <label for="nome" class="block mb-2 text-sm font-medium">Nome da Categoria</label>
                         <input type="text" name="nome" id="nome" value="{{ old('nome', session('categoria')->nome) }}"
-                            class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900"
-                            placeholder="Digite o nome da categoria" required>
+                            class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900" placeholder="Digite o nome da categoria">
                     </div>
                 </div>
                 <div class="flex justify-center space-x-4 mt-6">

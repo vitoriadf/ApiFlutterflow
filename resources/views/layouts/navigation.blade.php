@@ -90,7 +90,7 @@
 
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center sm:hidden">
-                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-fuchsia-900 hover:text-gray-500 dark:hover:text-fuchsia-800 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-fuchsia-400 transition duration-150 ease-in-out transform hover:scale-105">
+                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-fuchsia-900 hover:text-gray-500 dark:hover:text-fuchsia-800 hover:bg-gray-100 dark:hover:bg-fuchsia-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-fuchsia-900 focus:text-gray-500 dark:focus:text-fuchsia-400 transition duration-150 ease-in-out transform hover:scale-105">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -102,12 +102,28 @@
 
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+            <div class="pt-1 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    {{ __('Inicio') }}
+                </x-responsive-nav-link>
+
+
+                <x-responsive-nav-link :href="route('produtos.index')" :active="request()->routeIs('produtos.index')">
+                    {{ __('Produtos') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                    {{ __('Categorias') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('marcas.index')" :active="request()->routeIs('marcas.index')">
+                    {{ __('Marcas') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('cores.index')" :active="request()->routeIs('cores.index')">
+                    {{ __('Cores') }}
                 </x-responsive-nav-link>
             </div>
-
             <!-- Responsive Settings Options -->
             <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                 <div class="px-4">

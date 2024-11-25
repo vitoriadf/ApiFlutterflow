@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateProdutoRequest;
 use App\Models\Produto;
 use App\Models\Marca;
 use App\Models\Cor;
@@ -38,7 +39,7 @@ class ProdutoController extends Controller
         return view('produto_create', compact('marcas', 'cores', 'categorias'));
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateProdutoRequest $request)
     {
         $create = $this->produto->create([
             'nome' => $request->input('nome'),
@@ -70,7 +71,7 @@ class ProdutoController extends Controller
         return view('produto_edit', compact('produto', 'marcas', 'cores', 'categorias'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateProdutoRequest $request, string $id)
     {
         $produto = $this->produto->find($id);
 
@@ -109,7 +110,7 @@ class ProdutoController extends Controller
             ->with('showProdutoDeleteModal', false);
     }
 
-   
+
 
     public function closeModalDelete()
     {

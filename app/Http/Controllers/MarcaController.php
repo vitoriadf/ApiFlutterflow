@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateSupportRequest;
 use App\Models\Marca;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class MarcaController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(StoreUpdateSupportRequest $request)
     {
         $create = $this->marca->create([
             'nome' => $request->input('nome')

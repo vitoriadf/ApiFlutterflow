@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateCategoriaRequest;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class CategoriaController extends Controller
         return redirect()->route('categorias.index')->with('showCategoriaModal', true);
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateCategoriaRequest $request)
     {
         $create = $this->categoria->create([
             'nome' => $request->input('nome')
@@ -49,14 +50,14 @@ class CategoriaController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Categoria $categoria)
-{
-    return redirect()->route('categorias.index')->with(['showCategoriaEditModal' => true, 'categoria' => $categoria]);
-}
+    {
+        return redirect()->route('categorias.index')->with(['showCategoriaEditModal' => true, 'categoria' => $categoria]);
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateCategoriaRequest $request, string $id)
     {
         $update = $this->categoria->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {

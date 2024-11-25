@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateCorRequest;
 use App\Models\Cor;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class CorController extends Controller
         return redirect()->route('cores.index')->with('showCorModal', true);
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateCorRequest $request)
     {
         $create = $this->cor->create([
             'nome' => $request->input('nome')
@@ -48,7 +49,7 @@ class CorController extends Controller
         return redirect()->route('cores.index')->with(['showCorEditModal' => true, 'cor' => $cor]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateCorRequest $request, string $id)
     {
         $update = $this->cor->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {
