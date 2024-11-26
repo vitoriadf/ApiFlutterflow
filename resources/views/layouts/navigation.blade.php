@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
@@ -17,10 +19,10 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
-                        <a href="{{ route('dashboard') }}">
-                            <p class="">CDLER</p>
-                        
-                        </a>
+
+                        <p class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-fuchsia-900 focus:outline-none focus:text-gray-700 dark:focus:text-fuchsia-700 focus:border-gray-300 dark:focus:border-fuchsia-700 transition duration-150 ease-in-out ">CDLER</p>
+
+
                     </div>
 
                     <!-- Navigation Links -->

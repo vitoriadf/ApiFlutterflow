@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
 <div class="">
@@ -67,7 +68,7 @@
                 </a>
             </div>
 
-           
+
             <div class="max-w-sm w-full bg-fuchsia-900 text-white rounded-lg shadow-lg">
                 <a href="{{ route('cores.index') }}" class="block p-6">
                     <div class="flex items-center space-x-4 justify-center">
