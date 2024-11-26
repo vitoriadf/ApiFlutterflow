@@ -15,13 +15,14 @@ class ProdutoController extends Controller
     public readonly Marca $marca;
     public readonly Cor $cor;
     public readonly Categoria $categoria;
-
+   
     public function __construct()
     {
         $this->produto = new Produto();
         $this->marca = new Marca();
         $this->cor = new Cor();
         $this->categoria = new Categoria();
+     
     }
 
     public function index()
@@ -35,8 +36,9 @@ class ProdutoController extends Controller
         $marcas = $this->marca->all();
         $cores = $this->cor->all();
         $categorias = $this->categoria->all();
+        $produtos = $this->produto->all();
 
-        return view('produto_create', compact('marcas', 'cores', 'categorias'));
+        return view('produto_create', compact('marcas', 'cores', 'categorias','produtos'));
     }
 
     public function store(StoreUpdateProdutoRequest $request)
@@ -47,7 +49,7 @@ class ProdutoController extends Controller
             'marca_id' => $request->input('marca_id'),
             'cor_id' => $request->input('cor_id'),
             'categoria_id' => $request->input('categoria_id'),
-            'quantidade' => $request->input('quatidade'),
+            'quantidade' => $request->input('quantidade'),
         ]);
 
         if ($create) {
@@ -67,6 +69,8 @@ class ProdutoController extends Controller
         $marcas = $this->marca->all();
         $cores = $this->cor->all();
         $categorias = $this->categoria->all();
+        $produtos = $this->categoria->all();
+
 
         return view('produto_edit', compact('produto', 'marcas', 'cores', 'categorias'));
     }

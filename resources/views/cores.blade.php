@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+@section('content')
 @if(session()->has('message')){
 
 
@@ -10,7 +10,7 @@
     </svg>
     <span class="sr-only">Erro</span>
     <div class="ms-2 text-sm font-medium">
-        <p>{{ session()->get('message') }}</p>
+        <p>{session()->get('message')}</p>
     </div>
     <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1 hover:bg-red-200 inline-flex items-center justify-center h-6 w-6 dark:bg-green-800 dark:text-green-400 dark:hover:bg-green-900" data-dismiss-target="#alert-2" aria-label="Fechar" onclick="document.getElementById('alert-2').style.display='none'">
         <span class="sr-only">Fechar</span>

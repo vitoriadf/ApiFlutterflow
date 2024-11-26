@@ -39,7 +39,7 @@
                         </div>
                         <div>
                             <h2 class="text-2xl font-bold text-fuchsia-200">Marcas</h2>
-                            <p class="text-sm text-fuchsia-200 mt-2">Gerencie as marcas que temos cadastradas.</p>
+                            <p class="text-sm text-fuchsia-200 mt-2">Gerencie as marcas cadastradas.</p>
                         </div>
                     </div>
                     <div class="mt-4 bg-fuchsia-200 text-fuchsia-900 rounded-full py-2 text-center font-semibold">
@@ -67,7 +67,7 @@
                 </a>
             </div>
 
-            <!-- Quarto cartão na segunda linha -->
+           
             <div class="max-w-sm w-full bg-fuchsia-900 text-white rounded-lg shadow-lg">
                 <a href="{{ route('cores.index') }}" class="block p-6">
                     <div class="flex items-center space-x-4 justify-center">
