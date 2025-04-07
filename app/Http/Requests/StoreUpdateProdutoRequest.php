@@ -25,9 +25,10 @@ class StoreUpdateProdutoRequest extends FormRequest
             'nome'=> 'required |min:3|max:255|unique:produtos',
             'quantidade'=> 'required |min:1|max:255|',
             'preco'=> 'required |min:2|max:255|',
-            'marca'=> 'required |min:1|max:255|',
-            'categoria'=> 'required |min:1|max:255|',
-            'cor'=> 'required |min:1|max:255|',
+            'marca_id'=> 'required |min:1|max:255|',
+            'categoria_id'=> 'required |min:1|max:255|',
+            'cor_id'=> 'required |min:1|max:255|',
+
         ];
     }
 }

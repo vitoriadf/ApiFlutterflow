@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\CorController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\TecidoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -60,17 +61,32 @@ Route::middleware('auth')->group(function () {
     Route::post('/cores/close-modal-delete', [CorController::class, 'closeModalDelete'])->name('cores.closeModalDelete');
 
     Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
-Route::get('/produtos/create', [ProdutoController::class, 'create'])->name('produtos.create');
-Route::post('/produtos', [ProdutoController::class, 'store'])->name('produtos.store');
-Route::get('/produtos/{produto}', [ProdutoController::class, 'show'])->name('produtos.show');
-Route::get('/produtos/{produto}/edit', [ProdutoController::class, 'edit'])->name('produtos.edit');
-Route::put('/produtos/{produto}', [ProdutoController::class, 'update'])->name('produtos.update');
-Route::delete('/produtos/{produto}', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
-Route::post('produtos/closeModal', [ProdutoController::class, 'closeModal'])->name('produtos.closeModal');
-Route::post('/produtos/close-modal-edit', [ProdutoController::class, 'closeModalEdit'])->name('produtos.closeModalEdit');
-Route::get('/produtos/{produto}/delete', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
-Route::post('/produtos/{id}/confirm-delete', [ProdutoController::class, 'confirmDelete'])->name('produtos.confirmDelete');
-Route::post('/produtos/close-modal-delete', [ProdutoController::class, 'closeModalDelete'])->name('produtos.closeModalDelete');
+    Route::get('/produtos/create', [ProdutoController::class, 'create'])->name('produtos.create');
+    Route::post('/produtos', [ProdutoController::class, 'store'])->name('produtos.store');
+    Route::get('/produtos/{produto}', [ProdutoController::class, 'show'])->name('produtos.show');
+    Route::get('/produtos/{produto}/edit', [ProdutoController::class, 'edit'])->name('produtos.edit');
+    Route::put('/produtos/{produto}', [ProdutoController::class, 'update'])->name('produtos.update');
+    Route::delete('/produtos/{produto}', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
+    Route::post('produtos/closeModal', [ProdutoController::class, 'closeModal'])->name('produtos.closeModal');
+    Route::post('/produtos/close-modal-edit', [ProdutoController::class, 'closeModalEdit'])->name('produtos.closeModalEdit');
+    Route::get('/produtos/{produto}/delete', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
+    Route::post('/produtos/{id}/confirm-delete', [ProdutoController::class, 'confirmDelete'])->name('produtos.confirmDelete');
+    Route::post('/produtos/close-modal-delete', [ProdutoController::class, 'closeModalDelete'])->name('produtos.closeModalDelete');
+
+    Route::get('/tecidos', [TecidoController::class, 'index'])->name('tecidos.index');
+    Route::get('/tecidos/create', [TecidoController::class, 'create'])->name('tecidos.create');
+    Route::post('/tecidos', [TecidoController::class, 'store'])->name('tecidos.store');
+    Route::get('/tecidos/{tecido}', [TecidoController::class, 'show'])->name('tecidos.show');
+    Route::get('/tecidos/{tecido}/edit', [TecidoController::class, 'edit'])->name('tecidos.edit');
+    Route::put('/tecidos/{tecido}', [TecidoController::class, 'update'])->name('tecidos.update');
+    Route::delete('/tecidos/{tecido}', [tecidoController::class, 'destroy'])->name('tecidos.destroy');
+    Route::post('tecido/closeModal', [TecidoController::class, 'closeModal'])->name('tecidos.closeModal');
+    Route::post('/tecidos/close-modal-edit', [TecidoController::class, 'closeModalEdit'])->name('tecidos.closeModalEdit');
+    Route::get('/tecidos/{tecido}/delete', [TecidoController::class, 'destroy'])->name('tecidos.destroy');
+    Route::post('/tecidos/{id}/confirm-delete', [TecidoController::class, 'confirmDelete'])->name('tecidos.confirmDelete');
+    Route::post('/tecidos/close-modal-delete', [TecidoController::class, 'closeModalDelete'])->name('Tecidos.closeModalDelete');
+
+
 
 
 });
