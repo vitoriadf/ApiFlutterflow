@@ -105,5 +105,42 @@
     </div>
 </div>
 @endif
+@if(session('showTecidoEditModal'))
+<div class="fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
+    <div class="relative p-4 w-full max-w-xl min-h-[400px]">
+        <div class="relative bg-fuchsia-200 text-fuchsia-900 rounded-lg shadow">
+            <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-fuchsia-950">
+                <h3 class="text-lg font-semibold">Editar Tecido</h3>
+                <form action="{{ route('tecidos.closeModalEdit') }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-fuchsia-900 dark:hover:text-white">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <form action="{{ route('tecidos.update', session('tecido')->id) }}" method="POST" class="p-4 md:p-5">
+                @csrf
+                @method('PUT')
+                <div class="grid gap-4 mb-4">
+                    <div class="col-span-2">
+                        <label for="nome" class="block mb-2 text-sm font-medium">Nome do Tecido</label>
+                        <input type="text" name="nome" id="nome" value="{{ old('nome', session('tecido')->nome) }}" class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900" placeholder="Digite o nome do tecido">
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-4 mt-6">
+                    <button type="submit" class="text-white items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Atualizar
+                    </button>
+                    <a href="{{ route('tecidos.index') }}" class="py-2.5 px-5 ms-3 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:outline-none">
+                        Fechar
+                    </a>
+                </div>
+            </form>
 
+        </div>
+    </div>
+</div>
+@endif
 @endsection
