@@ -9,23 +9,24 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
         <div class="bg-fuchsia-100 rounded-xl shadow-lg p-6 text-center">
             <h2 class="text-sm text-fuchsia-500 mb-1">Produtos</h2>
-            <p class="text-3xl font-bold text-fuchsia-900"></p>
+            <p class="text-3xl font-bold text-fuchsia-900">{{ $totalProdutos }}</p>
         </div>
         <div class="bg-fuchsia-100 rounded-xl shadow-lg p-6 text-center">
             <h2 class="text-sm text-fuchsia-500 mb-1">Marcas</h2>
-            <p class="text-3xl font-bold text-fuchsia-900"></p>
+            <p class="text-3xl font-bold text-fuchsia-900">{{ $totalMarcas }}</p>
         </div>
         <div class="bg-fuchsia-100 rounded-xl shadow-lg p-6 text-center">
             <h2 class="text-sm text-fuchsia-500 mb-1">Tecidos</h2>
-            <p class="text-3xl font-bold text-fuchsia-900"></p>
+            <p class="text-3xl font-bold text-fuchsia-900">{{ $totalTecidos }}</p>
         </div>
         <div class="bg-fuchsia-100 rounded-xl shadow-lg p-6 text-center">
             <h2 class="text-sm text-fuchsia-500 mb-1">Categorias</h2>
-            <p class="text-3xl font-bold text-fuchsia-900"></p>
+            <p class="text-3xl font-bold text-fuchsia-900">{{ $totalCategorias }}</p>
         </div>
         <div class="bg-fuchsia-100 rounded-xl shadow-lg p-6 text-center">
             <h2 class="text-sm text-fuchsia-500 mb-1">Cores</h2>
-            <p class="text-3xl font-bold text-fuchsia-900"></p>
+            <p class="text-3xl font-bold text-fuchsia-900">{{ $totalCores }}</p>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
