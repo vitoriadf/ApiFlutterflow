@@ -55,7 +55,12 @@ class TecidoController extends Controller
 
     public function update(Request $request, string $id)
     {
-      
+        $update = $this->tecido->where('id', $id)->update($request->except(['_token', '_method']));
+        if ($update) {
+            return redirect()->route('tecidos.index')->with('message', 'Editado com sucesso')->with('showTecidoEditModal', false);
+        }
+        return redirect()->route('tecidos.index')->with('message', 'Erro ao editar')->with('showTecidoEditModal', false);
+
     }
 
     
