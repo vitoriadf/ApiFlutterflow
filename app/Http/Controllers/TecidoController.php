@@ -97,4 +97,9 @@ class TecidoController extends Controller
     {
         return redirect()->route('tecidos.index')->with('showTecidoEditModal', false);
     }
+
+    public function closeModalDelete()
+    {
+        return redirect()->route('tecidos.index')->with('showTecidoDeleteModal', false);
+    }
 }
