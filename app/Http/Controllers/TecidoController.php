@@ -66,6 +66,25 @@ class TecidoController extends Controller
     
     public function destroy(string $id)
     {
-        
+        return redirect()->route('tecidos.index')
+        ->with('showTecidoDeleteModal', true)
+        ->with('tecidoDeleteId', $id);
     }
+    
+    public function confirmDelete(string $id)
+    {
+        $tecido = $this->tecido->find($id);
+
+        if ($tecido) {
+            $tecido->delete();
+            return redirect()->route('tecidos.index')
+                ->with('message', 'Tecido excluída com sucesso')
+                ->with('showTecidoDeleteModal', false);
+        }
+
+        return redirect()->route('Tecidos.index')
+            ->with('message', 'Erro ao excluir tecido')
+            ->with('showTecidoDeleteModal', false);
+    }
+
 }
