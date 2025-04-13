@@ -26,7 +26,7 @@
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
     <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Tecidos</h1>
     <div class="mt-2">
-        <a href="" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-fuchsia-200 dark:focus:ring-blue-800">
+        <a href="{{ route('tecidos.create') }}" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-fuchsia-200 dark:focus:ring-blue-800">
             Adicionar
         </a>
     </div>
@@ -58,8 +58,8 @@
                 </td>
                 <td class="px-6 py-4 text-center">
                     <div class="inline-flex space-x-4">
-                        <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
-                        <a href="" class="font-medium text-red-600 dark:text-red-500 hover:underline">Deletar</a>
+                        <a href="{{ route('tecidos.edit', ['tecido' => $tecido->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                        <a href="{{ route('tecidos.destroy', $tecido->id) }}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Deletar</a>
                     </div>
                 </td>
             </tr>
@@ -67,4 +67,43 @@
         </tbody>
     </table>
 </div>
+@if(session('showTecidoModal'))
+<div class="fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
+    <div class="relative p-4 w-full max-w-xl min-h-[400px]">
+        <div class="relative bg-fuchsia-200 text-fuchsia-900 rounded-lg shadow-2xl">
+            <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-fuchsia-950">
+                <h3 class="text-lg font-semibold">Adicionar Novo Tecido</h3>
+                <form action="{{ route('tecidos.closeModal') }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-fuchsia-900 dark:hover:text-white">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <form action="{{ route('tecidos.store') }}" method="POST" class="p-4 md:p-5">
+                @csrf
+                <div class="grid gap-4 mb-4">
+                    <div class="col-span-2">
+                        <label for="nome" class="block mb-2 text-sm font-medium">Nome do Tecido</label>
+                        <input type="text" name="nome" id="nome" class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900" placeholder="Digite o nome do tecido">
+                    </div>
+                </div>
+
+                <div class="flex justify-center space-x-4 mt-6">
+                    <a href="{{ route('tecidos.index') }}" class="py-2.5 px-5 ms-3 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:outline-none">
+                        fechar
+                    </a>
+                    <button type="submit" class="text-white items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Adicionar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endif
+
 @endsection

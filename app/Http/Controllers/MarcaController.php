@@ -41,26 +41,20 @@ class MarcaController extends Controller
         return redirect()->back()->with('message', 'Erro ao adicionar nova marca');
     }
 
-    /**
-     * Display the specified resource.
-     */
+   
     public function show(Marca $marca)
     {
         return view('marca_show', ['marca' => $marca]);
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Marca $marca)
     {
         return redirect()->route('marcas.index')->with(['showMarcaEditModal' => true, 'marca' => $marca]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, string $id)
     {
         $update = $this->marca->where('id', $id)->update($request->except(['_token', '_method']));
@@ -70,9 +64,6 @@ class MarcaController extends Controller
         return redirect()->route('marcas.index')->with('message', 'Erro ao editar')->with('showMarcaEditModal', false);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         return redirect()->route('marcas.index')
