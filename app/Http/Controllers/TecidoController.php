@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StoreUpdateSupportRequest;
 use App\Models\Tecido;
 use Illuminate\Http\Request;
@@ -9,7 +10,8 @@ class TecidoController extends Controller
 {
     public readonly Tecido $tecido;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->tecido = new Tecido();
     }
 
@@ -51,7 +53,7 @@ class TecidoController extends Controller
     {
         return redirect()->route('tecidos.index')->with(['showTecidoEditModal' => true, 'tecido' => $tecido]);
     }
-    
+
 
     public function update(Request $request, string $id)
     {
@@ -60,17 +62,16 @@ class TecidoController extends Controller
             return redirect()->route('tecidos.index')->with('message', 'Editado com sucesso')->with('showTecidoEditModal', false);
         }
         return redirect()->route('tecidos.index')->with('message', 'Erro ao editar')->with('showTecidoEditModal', false);
-
     }
 
-    
+
     public function destroy(string $id)
     {
         return redirect()->route('tecidos.index')
-        ->with('showTecidoDeleteModal', true)
-        ->with('tecidoDeleteId', $id);
+            ->with('showTecidoDeleteModal', true)
+            ->with('tecidoDeleteId', $id);
     }
-    
+
     public function confirmDelete(string $id)
     {
         $tecido = $this->tecido->find($id);
@@ -87,4 +88,10 @@ class TecidoController extends Controller
             ->with('showTecidoDeleteModal', false);
     }
 
+    public function closeModal()
+    {
+        return redirect()->route('tecidos.index')->with('showTecidoModal', false);
+    }
+
+   
 }
