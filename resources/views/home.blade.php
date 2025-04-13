@@ -28,6 +28,4 @@
             <p class="text-3xl font-bold text-fuchsia-900"></p>
         </div>
     </div>
-
-
-@endsection
+    @endsection
