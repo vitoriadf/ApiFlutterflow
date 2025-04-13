@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/tecidos/close-modal-edit', [TecidoController::class, 'closeModalEdit'])->name('tecidos.closeModalEdit');
     Route::get('/tecidos/{tecido}/delete', [TecidoController::class, 'destroy'])->name('tecidos.destroy');
     Route::post('/tecidos/{id}/confirm-delete', [TecidoController::class, 'confirmDelete'])->name('tecidos.confirmDelete');
-    Route::post('/tecidos/close-modal-delete', [TecidoController::class, 'closeModalDelete'])->name('Tecidos.closeModalDelete');
+    Route::post('/tecidos/close-modal-delete', [TecidoController::class, 'closeModalDelete'])->name('tecidos.closeModalDelete');
 
 
 
