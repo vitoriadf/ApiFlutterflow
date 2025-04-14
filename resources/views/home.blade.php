@@ -28,5 +28,30 @@
             <p class="text-3xl font-bold text-fuchsia-900">{{ $totalCores }}</p>
         </div>
     </div>
+    <div class="bg-fuchsia-100 shadow-md rounded-xl p-6 mt-6">
+        <h2 class="text-lg font-semibold text-fuchsia-900 mb-4">Últimos Produtos Cadastrados</h2>
+        <table class="w-full text-left text-sm">
+            <thead>
+                <tr class="border-b text-fuchsia-700">
+                    <th class="py-2">Nome</th>
+                    <th class="py-2">Preço</th>
+                    <th class="py-2">Marca</th>
+                    <th class="py-2">Categoria</th>
+                    <th class="py-2">Tecido</th>
+                    <th class="py-2">Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b hover:bg-fuchsia-200">
+                    <td class="py-2"></td>
+                    <td class="py-2"></td>
+                    <td class="py-2"></td>
+                    <td class="py-2"></td>
+                    <td class="py-2"></td>
+                    <td class="py-2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection
