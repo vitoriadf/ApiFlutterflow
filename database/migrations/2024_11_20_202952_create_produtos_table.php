@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('categoria_id')->constrained()->onDelete('cascade'); 
             $table->foreignId('marca_id')->constrained()->onDelete('cascade');
             $table->foreignId('cor_id')->constrained()->onDelete('cascade'); 
+            $table->foreignId('tecido_id')->constrained()->onDelete('cascade');
             $table->timestamps(); 
         });
     }
