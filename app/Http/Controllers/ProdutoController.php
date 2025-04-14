@@ -7,6 +7,7 @@ use App\Models\Produto;
 use App\Models\Marca;
 use App\Models\Cor;
 use App\Models\Categoria;
+use App\Models\Tecido;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -15,6 +16,7 @@ class ProdutoController extends Controller
     public readonly Marca $marca;
     public readonly Cor $cor;
     public readonly Categoria $categoria;
+    public readonly Tecido $tecido;
    
     public function __construct()
     {
@@ -22,6 +24,7 @@ class ProdutoController extends Controller
         $this->marca = new Marca();
         $this->cor = new Cor();
         $this->categoria = new Categoria();
+        $this->tecido = new Tecido();
      
     }
 
@@ -36,9 +39,10 @@ class ProdutoController extends Controller
         $marcas = $this->marca->all();
         $cores = $this->cor->all();
         $categorias = $this->categoria->all();
+        $tecidos = $this->tecido->all();
         $produtos = $this->produto->all();
 
-        return view('produto_create', compact('marcas', 'cores', 'categorias','produtos'));
+        return view('produto_create', compact('marcas', 'cores', 'categorias','tecidos','produtos'));
     }
 
     public function store(StoreUpdateProdutoRequest $request)
@@ -49,6 +53,7 @@ class ProdutoController extends Controller
             'marca_id' => $request->input('marca_id'),
             'cor_id' => $request->input('cor_id'),
             'categoria_id' => $request->input('categoria_id'),
+            'tecido_id' => $request->input('tecido_id'),
             'quantidade' => $request->input('quantidade'),
         ]);
 
@@ -69,7 +74,8 @@ class ProdutoController extends Controller
         $marcas = $this->marca->all();
         $cores = $this->cor->all();
         $categorias = $this->categoria->all();
-        $produtos = $this->categoria->all();
+        $tecidos = $this->tecido->all();
+        $produtos = $this->produto->all();
 
 
         return view('produto_edit', compact('produto', 'marcas', 'cores', 'categorias'));
@@ -85,6 +91,7 @@ class ProdutoController extends Controller
             'marca_id' => $request->input('marca_id'),
             'cor_id' => $request->input('cor_id'),
             'categoria_id' => $request->input('categoria_id'),
+            'tecido_id' => $request->input('tecido_id'),
             'quantidade' => $request->input('quantidade'),
         ]);
 
