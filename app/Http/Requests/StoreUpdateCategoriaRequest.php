@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rule;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -21,8 +22,9 @@ class StoreUpdateCategoriaRequest extends FormRequest
      */
     public function rules(): array
     {
+        $categoriaId = $this->route('categoria');
         return [
-            'nome'=> 'required |min:3|max:255|unique:categorias',
+            'nome'=> ['required','min:3','max:255',Rule::unique('categorias')->ignore($categoriaId)],
         ];
     }
 }

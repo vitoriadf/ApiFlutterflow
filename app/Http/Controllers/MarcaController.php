@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUpdateSupportRequest;
+use App\Http\Requests\StoreUpdateMarcaRequest;
 use App\Models\Marca;
 use Illuminate\Http\Request;
 
@@ -28,7 +28,7 @@ class MarcaController extends Controller
 
 
 
-    public function store(StoreUpdateSupportRequest $request)
+    public function store(StoreUpdateMarcaRequest $request)
     {
         $create = $this->marca->create([
             'nome' => $request->input('nome')
@@ -55,7 +55,7 @@ class MarcaController extends Controller
     }
 
     
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateMarcaRequest $request, string $id)
     {
         $update = $this->marca->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {

@@ -78,7 +78,7 @@ class ProdutoController extends Controller
         $produtos = $this->produto->all();
 
 
-        return view('produto_edit', compact('produto', 'marcas', 'cores', 'categorias'));
+        return view('produto_edit', compact('produto', 'marcas','cores','categorias','tecidos'));
     }
 
     public function update(StoreUpdateProdutoRequest $request, string $id)

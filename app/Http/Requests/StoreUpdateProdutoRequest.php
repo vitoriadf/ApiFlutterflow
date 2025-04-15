@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rule;
+
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -21,8 +23,10 @@ class StoreUpdateProdutoRequest extends FormRequest
      */
     public function rules(): array
     {
+        $produtoId = $this->route('produto');
+
         return [
-            'nome'=> 'required |min:3|max:255|unique:produtos',
+            'nome'=> ['required','min:3','max:255',Rule::unique('produtos')->ignore($produtoId)],
             'quantidade'=> 'required |min:1|max:255|',
             'preco'=> 'required |min:2|max:255|',
             'marca_id'=> 'required |min:1|max:255|',

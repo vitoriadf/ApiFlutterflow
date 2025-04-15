@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUpdateSupportRequest;
+use App\Http\Requests\StoreUpdateTecidoRequest;
 use App\Models\Tecido;
 use Illuminate\Http\Request;
 
@@ -26,7 +26,7 @@ class TecidoController extends Controller
         return redirect()->route('tecidos.index')->with('showTecidoModal', true);
     }
 
-    public function store(StoreUpdateSupportRequest $request)
+    public function store(StoreUpdateTecidoRequest $request)
     {
         $create = $this->tecido->create([
             'nome' => $request->input('nome')
@@ -55,7 +55,7 @@ class TecidoController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateTecidoRequest $request, string $id)
     {
         $update = $this->tecido->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {

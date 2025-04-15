@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rule;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -21,8 +22,9 @@ class StoreUpdateTecidoRequest extends FormRequest
      */
     public function rules(): array
     {
+        $tecidoId = $this->route('tecido');
         return [
-            'nome'=> 'required |min:3|max:255|unique:tecidos',
+            'nome'=> ['required','min:3','max:255',Rule::unique('tecidos')->ignore($tecidoId)],
         ];
     }
 }

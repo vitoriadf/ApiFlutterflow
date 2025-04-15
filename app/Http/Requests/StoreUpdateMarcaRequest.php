@@ -5,14 +5,14 @@ use Illuminate\Validation\Rule;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateCorRequest extends FormRequest
+class StoreUpdateMarcaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,9 +22,9 @@ class StoreUpdateCorRequest extends FormRequest
      */
     public function rules(): array
     {
-        $corId = $this->route('cor');
+        $marcaId = $this->route('marca');
         return [
-            'nome'=> ['required','min:3','max:255',Rule::unique('cores')->ignore($corId)],
+            'nome'=> ['required','min:3','max:255',Rule::unique('marcas')->ignore($marcaId)],
         ];
     }
 }
