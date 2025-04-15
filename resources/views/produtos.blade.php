@@ -56,10 +56,10 @@
                 <td class="py-2">{{ $produto->id }}</td>
                 <td class="py-2">{{ $produto->nome }}</td>
                 <td class="py-2">R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
-                <td class="py-2">{{ $produto->marca->nome ?? '-' }}</td>
-                <td class="py-2">{{ $produto->cor->nome ?? '-' }}</td>
-                <td class="py-2">{{ $produto->categoria->nome ?? '-' }}</td>
-                <td class="py-2">{{ $produto->tecido->nome ?? '-' }}</td>
+                <td class="py-2">{{ $produto->marca->nome }}</td>
+                <td class="py-2">{{ $produto->cor->nome}}</td>
+                <td class="py-2">{{ $produto->categoria->nome}}</td>
+                <td class="py-2">{{ $produto->tecido->nome}}</td>
                 <td class="py-2">{{ $produto->quantidade }}</td>
                 <td class="py-2 text-center">
                     <div class="inline-flex space-x-4">
