@@ -24,9 +24,6 @@
 }
 @endif
 
-
-
-
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
     <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Produtos</h1>
     <div class="mt-2">
@@ -62,6 +59,9 @@
                     Categoria
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
+                    Tecido
+                </th>
+                <th scope="col" class="px-6 py-3 text-center">
                     Quantidade
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
@@ -90,6 +90,9 @@
                 </td>
                 <td class="px-6 py-4 text-fuchsia-900 text-center border-fuchsia-900">
                     {{$produto->categoria->nome }}
+                </td>
+                <td class="px-6 py-4 text-fuchsia-900 text-center border-fuchsia-900">
+                    {{$produto->tecido->nome }}
                 </td>
                 <td class="px-6 py-4 text-fuchsia-900 text-center border-fuchsia-900">
                     {{$produto->quantidade}}

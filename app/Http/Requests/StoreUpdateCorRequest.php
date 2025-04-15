@@ -22,7 +22,7 @@ class StoreUpdateCorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome'=> 'required |min:3|max:255|unique:categorias',
+            'nome'=> 'required |min:3|max:255|unique:cores',
         ];
     }
 }

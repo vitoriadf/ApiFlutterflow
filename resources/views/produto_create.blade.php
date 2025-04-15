@@ -105,11 +105,22 @@
                     @endforeach
                 </select>
             </div>
-
             <div class="col-span-1">
+                <label for="tecido" class="block mb-2 text-sm font-medium text-fuchsia-900">Tecido</label>
+                <select name="tecido_id" id="tecido"
+                    class="form-select bg-fuchsia-200 border border-fuchsia-900 text-fuchsia-900 rounded-lg p-2.5 focus:ring-2 focus:ring-fuchsia-900 w-full max-w-md">
+                    <option value="">Selecione um Tecido</option>
+                    @foreach($tecidos as $tecido)
+                    <option value="{{ $tecido->id }}">{{ $tecido->nome }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-span-2 flex justify-center">
+            <div class="w-full max-w-md">
                 <label for="quantidade" class="block mb-2 text-sm font-medium text-fuchsia-900">Quantidade</label>
                 <input type="number" name="quantidade" id="quantidade"
-                    class="form-control bg-fuchsia-200 border border-fuchsia-900 text-fuchsia-900 placeholder-fuchsia-900 rounded-lg p-2.5 focus:ring-2 focus:ring-fuchsia-900 w-full max-w-md"
+                    class="form-control bg-fuchsia-200 border border-fuchsia-900 text-fuchsia-900 placeholder-fuchsia-900 rounded-lg p-2.5 focus:ring-2 focus:ring-fuchsia-900 w-full"
                     placeholder="Quantidade">
             </div>
         </div>
