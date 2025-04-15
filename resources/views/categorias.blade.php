@@ -31,8 +31,7 @@
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
     <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Categorias</h1>
     <div class="mt-2">
-        <a href="{{ route('categorias.create') }}"
-            class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-fuchsia-200 dark:focus:ring-blue-800">
+        <a href="{{ route('categorias.create') }}"class="text-blue-700 hover:text-blue-800 border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white  dark:focus:ring-blue-800">
             Adicionar
         </a>
     </div>
@@ -91,9 +90,7 @@
                 <div class="grid gap-4 mb-4">
                     <div class="col-span-2">
                         <label for="nome" class="block mb-2 text-sm font-medium">Nome da Categoria</label>
-                        <input type="text" name="nome" id="nome"
-                            class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900"
-                            placeholder="Digite o nome da categoria">
+                        <input type="text" name="nome" id="nome"class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:border-fuchsia-500 dark:focus:border-fuchsia-600  focus:outline-none focus:ring-2 dark:focus:ring-fuchsia-600  block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900"placeholder="Digite o nome da categoria">
                     </div>
                 </div>
 
@@ -138,7 +135,7 @@
                     <div class="col-span-2">
                         <label for="nome" class="block mb-2 text-sm font-medium">Nome da Categoria</label>
                         <input type="text" name="nome" id="nome" value="{{ old('nome', session('categoria')->nome) }}"
-                            class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900 dark:focus:ring-fuchsia-900 dark:focus:border-fuchsia-900" placeholder="Digite o nome da categoria">
+                            class="bg-fuchsia-200 border border-gray-400 text-fuchsia-900 text-sm rounded-lg focus:border-fuchsia-500 dark:focus:border-fuchsia-600  focus:outline-none focus:ring-2 dark:focus:ring-fuchsia-600  block w-full p-2.5 dark:bg-fuchsia-200 dark:border-fuchsia-300 dark:placeholder-fuchsia-400 dark:text-fuchsia-900" placeholder="Digite o nome da categoria">
                     </div>
                 </div>
                 <div class="flex justify-center space-x-4 mt-6">

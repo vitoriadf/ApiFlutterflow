@@ -27,8 +27,7 @@
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
     <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Produtos</h1>
     <div class="mt-2">
-        <a href="{{ route('produtos.create') }}"
-            class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-fuchsia-200 dark:focus:ring-blue-800">
+    <a href="{{ route('produtos.create') }}" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 ">
             Adicionar
         </a>
     </div>
