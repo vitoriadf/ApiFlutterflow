@@ -2,7 +2,7 @@
 
 
 @section('content')
-@if(session()->has('message')){
+@if(session()->has('message'))
 
 
 <div id="alert-2" class="flex items-center p-4 mt-4 mb-1 text-green-800 rounded-md bg-green-50 dark:bg-green-400 dark:text-green-900 w-1/2 mx-auto" role="alert">
@@ -21,7 +21,7 @@
     </button>
 </div>
 
-}
+
 @endif
 
 <div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
