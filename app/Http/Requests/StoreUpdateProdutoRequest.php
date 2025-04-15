@@ -27,8 +27,8 @@ class StoreUpdateProdutoRequest extends FormRequest
 
         return [
             'nome'=> ['required','min:3','max:255',Rule::unique('produtos')->ignore($produtoId)],
-            'quantidade'=> 'required |min:1|max:255|',
-            'preco'=> 'required |min:2|max:255|',
+            'quantidade'=> 'required|integer |min:1|max:100000|',
+            'preco'=> 'required|numeric |min:1|max:100000|',
             'marca_id'=> 'required |min:1|max:255|',
             'categoria_id'=> 'required |min:1|max:255|',
             'cor_id'=> 'required |min:1|max:255|',

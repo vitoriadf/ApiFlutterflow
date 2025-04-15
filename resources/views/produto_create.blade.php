@@ -64,7 +64,7 @@
 
             <div class="col-span-1">
                 <label for="preco" class="block mb-2 text-sm font-medium text-fuchsia-900">Preço</label>
-                <input type="number" name="preco" id="preco"
+                <input type="number"   name="preco" id="preco"
                     class="form-control bg-fuchsia-200 border border-fuchsia-900 text-fuchsia-900 placeholder-fuchsia-900 rounded-lg p-2.5 focus:ring-2 focus:ring-fuchsia-900 w-full max-w-md"
                     placeholder="Preço">
             </div>
