@@ -49,7 +49,9 @@
                             {{ __('Cores') }}
                         </x-nav-link>
 
-
+                        <x-nav-link :href="route('tecidos.index')" :active="request()->routeIs('tecidos.index')">
+                            {{ __('Tecidos') }}
+                        </x-nav-link>
 
 
                     </div>

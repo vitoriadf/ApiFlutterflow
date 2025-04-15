@@ -37,35 +37,27 @@
     </div>
 </div>
 
-<div class="relative overflow-x-auto shadow-lg sm:rounded-lg max-w-5xl mx-auto mt-12 border border-fuchsia-900">
-    <table class="w-full text-sm text-left rtl:text-right text-fuchsia-900 dark:text-fuchsia-50 rounded-lg dark:bg-fuchsia-900 ">
-        <thead class="text-xs text-fuchsia-700 uppercase bg-fuchsia-200 dark:bg-fuchsia-900 dark:text-fuchsia-50">
-            <tr>
-                <th scope="col" class="px-6 py-3 text-center">
-                    ID
-                </th>
-                <th scope="col" class="px-6 py-3 text-center">
-                    Nome
-                </th>
-                <th scope="col" class="px-6 py-3 text-center">
-                    Ações
-                </th>
+<div class="bg-fuchsia-100 shadow-md rounded-xl p-6 mt-12 max-w-5xl mx-auto">
+    <h2 class="text-lg font-semibold text-fuchsia-900 mb-4">Lista de Marcas</h2>
+    <table class="w-full text-left text-sm">
+        <thead>
+            <tr class="border-b text-fuchsia-700">
+                <th class="py-2 text-center">ID</th>
+                <th class="py-2 text-center">Nome</th>
+                <th class="py-2 text-center">Ações</th>
             </tr>
         </thead>
-        <tbody class="bg-fuchsia-50 border-t dark:bg-fuchsia-100 dark:border-fuchsia-900">
+        <tbody>
             @foreach($marcas as $marca)
-            <tr class="hover:bg-fuchsia-100 dark:hover:bg-fuchsia-200 border-t border-fuchsia-900">
-                <td class="px-6 py-4 text-fuchsia-900 text-center border-fuchsia-900">
-                    {{$marca->id}}
-                </td>
-                <td class="px-6 py-4 text-fuchsia-900 text-center border-fuchsia-900">
-                    {{$marca->nome}}
-                </td>
-                <td class="px-6 py-4 text-center">
+            <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900">
+                <td class="py-2 text-center">{{ $marca->id }}</td>
+                <td class="py-2 text-center">{{ $marca->nome }}</td>
+                <td class="py-2 text-center">
                     <div class="inline-flex space-x-4">
-                        <a href="{{ route('marcas.edit', ['marca' => $marca->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
-                        <a href="{{ route('marcas.destroy', $marca->id) }}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Deletar</a>
-
+                        <a href="{{ route('marcas.edit', ['marca' => $marca->id]) }}"
+                            class="font-medium text-blue-600 hover:underline">Editar</a>
+                        <a href="{{ route('marcas.destroy', $marca->id) }}"
+                            class="font-medium text-red-600 hover:underline">Deletar</a>
                     </div>
                 </td>
             </tr>
