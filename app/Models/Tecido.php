@@ -12,4 +12,11 @@ class Tecido extends Model
     {
         return $this->hasMany(Produto::class);
     }
+
+    public static function booted()
+    {
+        static::deleting(function ($tecido) {
+            $tecido->produtos()->delete(); 
+        });
+    }
 }

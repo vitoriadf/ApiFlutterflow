@@ -17,4 +17,11 @@ class Categoria extends Model
     {
         return $this->hasMany(Produto::class);
     }
+
+    public static function booted()
+    {
+        static::deleting(function ($categoria) {
+            $categoria->produtos()->delete(); 
+        });
+    }
 }

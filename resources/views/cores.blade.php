@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if(session()->has('message')){
-
+@if(session()->has('message'))
 
 <div id="alert-2" class="flex items-center p-4 mt-4 mb-1 text-green-800 rounded-md bg-green-50 dark:bg-green-400 dark:text-green-900 w-1/2 mx-auto" role="alert">
     <svg class="flex-shrink-0 w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -10,7 +9,7 @@
     </svg>
     <span class="sr-only">Erro</span>
     <div class="ms-2 text-sm font-medium">
-        <p>{session()->get('message')}</p>
+        <p>{{session()->get('message')}}</p>
     </div>
     <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1 hover:bg-red-200 inline-flex items-center justify-center h-6 w-6 dark:bg-green-800 dark:text-green-400 dark:hover:bg-green-900" data-dismiss-target="#alert-2" aria-label="Fechar" onclick="document.getElementById('alert-2').style.display='none'">
         <span class="sr-only">Fechar</span>
@@ -20,10 +19,7 @@
     </button>
 </div>
 
-}
 @endif
-
-
 @if($errors->any())
 <div id="alert-2" class="flex items-center p-4 mt-4 mb-1 text-red-800 rounded-md bg-red-50 dark:bg-red-400 dark:text-red-900 w-1/2 mx-auto" role="alert">
     <svg class="flex-shrink-0 w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -55,7 +51,7 @@
         <h2 class="text-lg font-semibold text-fuchsia-900 mb-4">Lista de Cores</h2>
         <table class="w-full text-left text-sm">
             <thead>
-                <tr class="border-b text-fuchsia-700">
+                <tr class="border-b text-fuchsia-700 border-fuchsia-200"">
                     <th class="py-2 px-3 text-center">ID</th>
                     <th class="py-2 px-3 text-center">Nome</th>
                     <th class="py-2 px-3 text-center">Ações</th>
@@ -63,7 +59,7 @@
             </thead>
             <tbody>
                 @foreach($cores as $cor)
-                <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900">
+                <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900 border-fuchsia-200"">
                     <td class="py-2 px-3 text-center">{{ $cor->id }}</td>
                     <td class="py-2 px-3 text-center">{{ $cor->nome }}</td>
                     <td class="py-2 px-3 text-center">

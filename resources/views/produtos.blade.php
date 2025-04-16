@@ -33,7 +33,7 @@
         <h2 class="text-lg font-semibold text-fuchsia-900 mb-4">Lista de Produtos</h2>
         <table class="w-full text-left text-sm">
             <thead>
-                <tr class="border-b text-fuchsia-700">
+                <tr class="border-b text-fuchsia-700 border-fuchsia-200"">
                     <th class="py-2 px-3">ID</th>
                     <th class="py-2 px-3">Nome</th>
                     <th class="py-2 px-3">Preço</th>
@@ -46,8 +46,9 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach($produtos as $produto)
-                <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900">
+                <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900 border-fuchsia-200"">
                     <td class="py-2 px-3">{{ $produto->id }}</td>
                     <td class="py-2 px-3">{{ $produto->nome }}</td>
                     <td class="py-2 px-3">R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>

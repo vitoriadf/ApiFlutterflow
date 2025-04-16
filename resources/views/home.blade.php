@@ -34,22 +34,24 @@
         <div class="overflow-x-auto">
             <table class="w-full text-left text-sm">
                 <thead>
-                    <tr class="border-b text-fuchsia-700">
+                    <tr class="border-b text-fuchsia-700 border-fuchsia-200">
                         <th class="py-2">Nome</th>
                         <th class="py-2">Preço</th>
                         <th class="py-2">Marca</th>
                         <th class="py-2">Categoria</th>
+                        <th class="py-2">Cores</th>
                         <th class="py-2">Tecido</th>
                         <th class="py-2">Quantidade</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($ultimosProdutos as $produto)
-                        <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900">
+                        <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900 border-fuchsia-200">
                             <td class="py-2">{{ $produto->nome }}</td>
                             <td class="py-2">R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
                             <td class="py-2">{{ $produto->marca->nome}}</td>
                             <td class="py-2">{{ $produto->categoria->nome}}</td>
+                            <td class="py-2">{{ $produto->cor->nome }}</td>
                             <td class="py-2">{{ $produto->tecido->nome }}</td>
                             <td class="py-2">{{ $produto->quantidade }}</td>
                         </tr>
