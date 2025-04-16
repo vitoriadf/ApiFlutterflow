@@ -44,42 +44,39 @@
 </div>
 @endif
 
-<div class="max-w-5xl mx-auto mt-12 mb-6 flex justify-between items-center">
-    <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Cores</h1>
-    <div class="mt-2">
-    <a href="{{ route('cores.create') }}" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 ">
+<div class="max-w-7xl mx-auto mt-12 mb-6 px-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <h1 class="text-4xl text-fuchsia-900 font-semibold leading-none">Cores</h1>
+        <a href="{{ route('cores.create') }}" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
             Adicionar
         </a>
     </div>
-</div>
-
-<div class="bg-fuchsia-100 shadow-md rounded-xl p-6 mt-12 max-w-5xl mx-auto">
-    <h2 class="text-lg font-semibold text-fuchsia-900 mb-4">Lista de Cores</h2>
-    <table class="w-full text-left text-sm">
-        <thead>
-            <tr class="border-b text-fuchsia-700">
-                <th class="py-2 text-center">ID</th>
-                <th class="py-2 text-center">Nome</th>
-                <th class="py-2 text-center">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($cores as $cor)
-            <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900">
-                <td class="py-2 text-center">{{ $cor->id }}</td>
-                <td class="py-2 text-center">{{ $cor->nome }}</td>
-                <td class="py-2 text-center">
-                    <div class="inline-flex space-x-4">
-                        <a href="{{ route('cores.edit', ['cor' => $cor->id]) }}"
-                            class="font-medium text-blue-600 hover:underline">Editar</a>
-                        <a href="{{ route('cores.destroy', $cor->id) }}"
-                            class="font-medium text-red-600 hover:underline">Deletar</a>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="bg-fuchsia-100 shadow-md rounded-xl p-6 mt-12 max-w-5xl mx-auto">
+        <h2 class="text-lg font-semibold text-fuchsia-900 mb-4">Lista de Cores</h2>
+        <table class="w-full text-left text-sm">
+            <thead>
+                <tr class="border-b text-fuchsia-700">
+                    <th class="py-2 px-3 text-center">ID</th>
+                    <th class="py-2 px-3 text-center">Nome</th>
+                    <th class="py-2 px-3 text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($cores as $cor)
+                <tr class="border-b hover:bg-fuchsia-200 text-fuchsia-900">
+                    <td class="py-2 px-3 text-center">{{ $cor->id }}</td>
+                    <td class="py-2 px-3 text-center">{{ $cor->nome }}</td>
+                    <td class="py-2 px-3 text-center">
+                        <div class="inline-flex space-x-4">
+                            <a href="{{ route('cores.edit', $cor->id) }}" class="font-medium text-blue-600 hover:underline">Editar</a>
+                            <a href="{{ route('cores.destroy', $cor->id) }}" class="font-medium text-red-600 hover:underline">Deletar</a>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @if(session('showCorModal'))

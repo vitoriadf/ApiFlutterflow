@@ -21,9 +21,7 @@
 </div>
 @endif
 
-@if(session()->has('message')){
-
-
+@if(session()->has('message'))
 <div id="alert-2" class="flex items-center p-4 mt-4 mb-1 text-green-800 rounded-md bg-green-50 dark:bg-green-400 dark:text-green-900 w-1/2 mx-auto" role="alert">
     <svg class="flex-shrink-0 w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
@@ -39,10 +37,7 @@
         </svg>
     </button>
 </div>
-
-}
 @endif
-
 
 <div class="container mx-auto p-6 bg-fuchsia-200 max-w-4xl">
     <h1 class="text-4xl font-semibold text-center text-fuchsia-900 mb-2 mt-5">Editar Produto</h1>
