@@ -13,10 +13,7 @@ class Categoria extends Model
         'nome'
     ];
 
-    public function produtos()
-    {
-        return $this->hasMany(Produto::class);
-    }
+  
 
     public static function booted()
     {

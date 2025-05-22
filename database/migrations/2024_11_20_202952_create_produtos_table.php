@@ -16,10 +16,6 @@ return new class extends Migration
             $table->string('nome'); 
             $table->decimal('preco', 8, 2); 
             $table->integer('quantidade');
-            $table->foreignId('categoria_id')->constrained()->onDelete('cascade'); 
-            $table->foreignId('marca_id')->constrained()->onDelete('cascade');
-            $table->foreignId('cor_id')->constrained()->onDelete('cascade'); 
-            $table->foreignId('tecido_id')->constrained()->onDelete('cascade'); 
             $table->timestamps(); 
         });
     }

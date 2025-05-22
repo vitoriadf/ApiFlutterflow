@@ -10,10 +10,7 @@ class Cor extends Model
     protected $table = 'cores'; 
     protected $fillable = ['nome'];
 
-    public function produtos()
-    {
-        return $this->hasMany(Produto::class);
-    }
+    
 
     public static function booted()
     {

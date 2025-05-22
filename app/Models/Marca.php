@@ -10,10 +10,7 @@ class Marca extends Model
     protected $fillable = ['nome'];
 
    
-    public function produtos()
-    {
-        return $this->hasMany(Produto::class);
-    }
+   
 
 
     public static function booted()
