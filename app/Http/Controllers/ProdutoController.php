@@ -1,130 +1,70 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateProdutoRequest;
 use App\Models\Produto;
-use App\Models\Marca;
-use App\Models\Cor;
-use App\Models\Categoria;
-use App\Models\Tecido;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    public readonly Produto $produto;
-    public readonly Marca $marca;
-    public readonly Cor $cor;
-    public readonly Categoria $categoria;
-    public readonly Tecido $tecido;
-   
-    public function __construct()
-    {
-        $this->produto = new Produto();
-        $this->marca = new Marca();
-        $this->cor = new Cor();
-        $this->categoria = new Categoria();
-        $this->tecido = new Tecido();
-     
-    }
-
     public function index()
     {
-        $produtos = $this->produto->all();
-        return view('produtos', ['produtos' => $produtos]);
+        $produtos = Produto::all();
+         return response()->json([
+            'produtos' => $produtos,
+            
+         ]);
     }
 
-    public function create()
+    public function store(Produto $request)
     {
-        $marcas = $this->marca->all();
-        $cores = $this->cor->all();
-        $categorias = $this->categoria->all();
-        $tecidos = $this->tecido->all();
-        $produtos = $this->produto->all();
+        $produto = Produto::create($request->validated());
 
-        return view('produto_create', compact('marcas', 'cores', 'categorias','tecidos','produtos'));
+        return response()->json([
+            'message' => 'Produto criado com sucesso',
+            'data' => $produto
+        ], 201);
     }
 
-    public function store(StoreUpdateProdutoRequest $request)
-    {
-        $create = $this->produto->create([
-            'nome' => $request->input('nome'),
-            'preco' => $request->input('preco'),
-            'marca_id' => $request->input('marca_id'),
-            'cor_id' => $request->input('cor_id'),
-            'categoria_id' => $request->input('categoria_id'),
-            'tecido_id' => $request->input('tecido_id'),
-            'quantidade' => $request->input('quantidade'),
-        ]);
+    // public function show(string $id)
+    // {
+    //     $produto = Produto::with(['marca', 'cor', 'categoria', 'tecido'])->find($id);
 
-        if ($create) {
-            return redirect()->route('produtos.index')->with('message', 'Produto criado com sucesso');
+    //     if (!$produto) {
+    //         return response()->json(['message' => 'Produto não encontrado'], 404);
+    //     }
+
+    //     return response()->json($produto);
+    // }
+
+    public function update(Produto $request, string $id)
+    {
+        $produto = Produto::find($id);
+
+        if (!$produto) {
+            return response()->json(['message' => 'Produto não encontrado'], 404);
         }
 
-        return redirect()->back()->with('message', 'Erro ao criar o produto');
-    }
+        $produto->update($request->validated());
 
-    public function show(Produto $produto)
-    {
-        return view('produtos.show', ['produto' => $produto]);
-    }
-
-    public function edit(Produto $produto)
-    {
-        $marcas = $this->marca->all();
-        $cores = $this->cor->all();
-        $categorias = $this->categoria->all();
-        $tecidos = $this->tecido->all();
-        $produtos = $this->produto->all();
-
-
-        return view('produto_edit', compact('produto', 'marcas','cores','categorias','tecidos'));
-    }
-
-    public function update(StoreUpdateProdutoRequest $request, string $id)
-    {
-        $produto = $this->produto->find($id);
-
-        $produto->update([
-            'nome' => $request->input('nome'),
-            'preco' => $request->input('preco'),
-            'marca_id' => $request->input('marca_id'),
-            'cor_id' => $request->input('cor_id'),
-            'categoria_id' => $request->input('categoria_id'),
-            'tecido_id' => $request->input('tecido_id'),
-            'quantidade' => $request->input('quantidade'),
+        return response()->json([
+            'message' => 'Produto atualizado com sucesso',
+            'data' => $produto
         ]);
-
-        return redirect()->route('produtos.index')->with('message', 'Produto atualizado com sucesso');
     }
 
     public function destroy(string $id)
     {
-        return redirect()->route('produtos.index')
-            ->with('showProdutoDeleteModal', true)
-            ->with('produtoDeleteId', $id);
-    }
+        $produto = Produto::find($id);
 
-    public function confirmDelete(string $id)
-    {
-        $produto = $this->produto->find($id);
-
-        if ($produto) {
-            $produto->delete();
-            return redirect()->route('produtos.index')
-                ->with('message', 'Produto excluído com sucesso')
-                ->with('showProdutoDeleteModal', false);
+        if (!$produto) {
+            return response()->json(['message' => 'Produto não encontrado'], 404);
         }
 
-        return redirect()->route('produtos.index')
-            ->with('message', 'Erro ao excluir o produto')
-            ->with('showProdutoDeleteModal', false);
-    }
+        $produto->delete();
 
-
-
-    public function closeModalDelete()
-    {
-        return redirect()->route('produtos.index')->with('showProdutoDeleteModal', false);
+        return response()->json(['message' => 'Produto excluído com sucesso']);
     }
 }

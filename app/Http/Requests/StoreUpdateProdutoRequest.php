@@ -29,11 +29,6 @@ class StoreUpdateProdutoRequest extends FormRequest
             'nome'=> ['required','min:3','max:255',Rule::unique('produtos')->ignore($produtoId)],
             'quantidade'=> 'required|integer |min:1|max:100000|',
             'preco'=> 'required|numeric |min:1|max:100000|',
-            'marca_id'=> 'required |min:1|max:255|',
-            'categoria_id'=> 'required |min:1|max:255|',
-            'cor_id'=> 'required |min:1|max:255|',
-            'tecido_id'=> 'required |min:1|max:255|',
-
         ];
     }
 }

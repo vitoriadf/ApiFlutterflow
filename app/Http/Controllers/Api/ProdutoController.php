@@ -28,16 +28,16 @@ class ProdutoController extends Controller
         ], 201);
     }
 
-    public function show(string $id)
-    {
-        $produto = Produto::with(['marca', 'cor', 'categoria', 'tecido'])->find($id);
+    // public function show(string $id)
+    // {
+    //     $produto = Produto::with(['marca', 'cor', 'categoria', 'tecido'])->find($id);
 
-        if (!$produto) {
-            return response()->json(['message' => 'Produto não encontrado'], 404);
-        }
+    //     if (!$produto) {
+    //         return response()->json(['message' => 'Produto não encontrado'], 404);
+    //     }
 
-        return response()->json($produto);
-    }
+    //     return response()->json($produto);
+    // }
 
     public function update(StoreUpdateProdutoRequest $request, string $id)
     {
