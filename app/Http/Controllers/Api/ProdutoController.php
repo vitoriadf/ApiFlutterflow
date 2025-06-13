@@ -13,7 +13,7 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::all();
          return response()->json([
-            'produtos' => $produtos,
+            'produtos' => $produtos
             
          ]);
     }
