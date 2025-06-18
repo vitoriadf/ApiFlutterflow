@@ -8,11 +8,12 @@ use App\Http\Controllers\Api\ProdutoController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+    
 });
 
-Route::apiResource('produtos', ProdutoController::class);
-
-Route::apiResource('marcas', MarcaController::class);
+Route::middleware('auth:sanctum')->apiResource('produtos', ProdutoController::class);
+Route::middleware('auth:sanctum')->apiResource('marcas', MarcaController::class);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

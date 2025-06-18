@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "efc4638f-a0b8-4253-bb57-144bdea774b9",
+		"name": "cdelr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45692306",
+		"_collection_link": "https://vitoria-178606.postman.co/workspace/vitoria's-Workspace~8d575232-8941-465f-8867-9adab19318c7/collection/45692306-efc4638f-a0b8-4253-bb57-144bdea774b9?action=share&source=collection_link&creator=45692306"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"emilly\",\r\n  \"email\": \"raquell@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/register",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"raquell@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/login",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/produtos",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"bota\",\r\n  \"quantidade\": 2,\r\n  \"preco\": 150\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/produtos",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"botaaaa\",\r\n  \"quantidade\": 2,\r\n  \"preco\": 150\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/produtos/14",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"produtos",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/produtos/14",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"produtos",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar marca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/marcas",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar marca",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"slegam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/marcas",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar marca",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"slegamm\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/marcas/12",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"marcas",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar marca",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/marcas/12",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"marcas",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|qDZ4Vq5UtT4Dtj14uGgR9HuIhdFnVHrY0mYU7SKe5a2a43d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://egret-fit-swift.ngrok-free.app/api/logout",
+					"protocol": "https",
+					"host": [
+						"egret-fit-swift",
+						"ngrok-free",
+						"app"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

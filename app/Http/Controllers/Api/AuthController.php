@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-
     public function register(Request $request)
     {
         $validated = $request->validate([
@@ -25,12 +24,17 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        return response()->json(['message' => 'Usuário cadastrado com sucesso!', 'user' => $user], 201);
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Usuário cadastrado com sucesso!',
+            'user' => $user,
+            'token' => $token,
+        ], 201);
     }
 
     public function login(Request $request)
     {
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -55,15 +59,11 @@ class AuthController extends Controller
             'token' => $token,
         ]);
     }
+
     public function logout(Request $request)
     {
-        $user = Auth::user();
+        $request->user()->tokens()->delete();
 
-        if ($user) {
-            $request->user()->tokens()->delete();
-            return response()->json(['message' => 'Logout realizado com sucesso!'], 200);
-        }
-
-        return response()->json(['message' => 'Usuário não autenticado'], 401);
+        return response()->json(['message' => 'Logout realizado com sucesso!'], 200);
     }
 }
